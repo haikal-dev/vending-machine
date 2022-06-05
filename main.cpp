@@ -8,6 +8,13 @@ int main() {
   cout << "Please insert coin (1, 5, 10):\n";
   cin >> coin;
 
-  cout << "You have insert coin: " << coin;
+  if(coin == 1 || coin == 5 || coin == 10){
+    cout << "OK! Please select the items:\n";
+  }
+
+  else {
+    cout << "Upps! You must entered 1, 5 & 10.";
+  }
+
   return 0;
 }
