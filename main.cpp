@@ -29,15 +29,27 @@ int selectItem(int coin){
 }
 
 int main() {
+  int totalCoin = 0;
 
   while(1){
     int coin;
+    int confirmation;
 
-    cout << "Please insert coin (1, 5, 10):\n";
+    cout << "Please insert coin (1, 5, 10): ";
     cin >> coin;
 
     if(coin == 1 || coin == 5 || coin == 10){
-      selectItem(coin);
+      totalCoin += coin;
+      cout << "\nMESSAGE FROM VENDING MACHINE\n";
+      cout << "==================================\n";
+      cout << "Your current inserted coin is: RM" << totalCoin << "\n\n";
+
+      cout << "Do you want to insert coin again? no = 0, yes = 1\n";
+      cin >> confirmation;
+
+      if(confirmation == 0){
+        selectItem(totalCoin);
+      }
     }
 
     else {
