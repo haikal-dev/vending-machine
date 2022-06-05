@@ -10,10 +10,14 @@ int selectItem(int coin){
        cin >> item;
 
        if(item > 5 || item < 1){
+         cout << "\n\nMESSAGE FROM VENDING MACHINE\n";
+         cout << "==================================\n";
          cout << "Opps! You have entered wrong item!\n\n";
        }
 
        else {
+         cout << "\n\nMESSAGE FROM VENDING MACHINE\n";
+         cout << "==================================\n";
          cout << "You have entered item " << item << " with price RM" << price[item-1] << "\n";
 
          // calculate to get balance
@@ -40,7 +44,7 @@ int main() {
 
     if(coin == 1 || coin == 5 || coin == 10){
       totalCoin += coin;
-      cout << "\nMESSAGE FROM VENDING MACHINE\n";
+      cout << "\n\nMESSAGE FROM VENDING MACHINE\n";
       cout << "==================================\n";
       cout << "Your current inserted coin is: RM" << totalCoin << "\n\n";
 
@@ -49,6 +53,14 @@ int main() {
 
       if(confirmation == 0){
         selectItem(totalCoin);
+      }
+
+      else if(confirmation == 1){
+        continue;
+      }
+
+      else {
+        break;
       }
     }
 
