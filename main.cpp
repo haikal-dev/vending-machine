@@ -2,11 +2,21 @@
 using namespace std;
 
 int selectItem(int coin){
+    int balance = coin;
+
     while(1){
        int item;
        int price[5] = {2,1,1,3,2};
+       int confirmation;
+       string quitConfirmation;
 
-       cout << "Please select the items (1, 2, 3, 4, 5):\n";
+       cout << "Please select the items (1, 2, 3, 4, 5)\n\n";
+       cout << "(1) Milo RM2\n";
+       cout << "(2) Waffle RM1\n";
+       cout << "(3) Mentos RM1\n";
+       cout << "(4) Maggi Cup RM3\n";
+       cout << "(5) Nescafe RM2\n\n";
+       cout << "Select item: ";
        cin >> item;
 
        if(item > 5 || item < 1){
@@ -20,13 +30,32 @@ int selectItem(int coin){
          cout << "==================================\n";
          cout << "You have entered item " << item << " with price RM" << price[item-1] << "\n";
 
-         // calculate to get balance
-         int balance = 0;
-
-         balance = coin - price[item-1];
+         balance = balance - price[item-1];
 
          cout << "Your balance is RM" << balance << "\n\n";
-         break;
+         cout << "You want to buy it more? No - 0, Yes - 1\n";
+         cin >> confirmation;
+
+         if(confirmation == 0){
+            cout << "Okay! Your balance is RM" << balance << ". Please take your balance!\n";
+            cout << "Press Q and enter to quit! ";
+            cin >> quitConfirmation;
+
+            if(quitConfirmation == "q"){
+                break;
+            }
+
+            else {
+                continue;
+            }
+         }
+         else if(confirmation == 1) {
+            continue;
+         }
+
+         else {
+            break;
+         }
        }
     }
     return 0;
@@ -39,6 +68,8 @@ int main() {
     int coin;
     int confirmation;
 
+    cout << "\n\nMESSAGE FROM VENDING MACHINE\n";
+    cout << "==================================\n";
     cout << "Please insert coin (1, 5, 10): ";
     cin >> coin;
 
